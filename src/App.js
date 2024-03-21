@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
+  const [shelters, setShelters] = useState([]);
+
+  useEffect(() => {
+    async function fetchShelters() {
+      try {
+        const response = await axios.get("http://localhost:3000/ngo");
+        setShelters(response.data);
+      } catch (error) {
+        console.error("Error fetching shelters:", error);
+      }
+    }
+
+    fetchShelters();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>NGO App</h1>
+      <h2>Shelters:</h2>
+      <ul>
+        {shelters.map((shelter) => (
+          <li key={shelter.shelter_id}>{shelter.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
