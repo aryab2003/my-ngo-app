@@ -14,10 +14,10 @@ const Sidebar = () => {
   };
 
   const sidebarItems = [
-    { name: "Home", icon: <IoHomeOutline />, href: '/home' },
-    { name: "About Us", icon: <FaUsers />, href: '/about us'},
-    { name: "Shelter", icon: <FaPersonShelter />, href:'/shelter'},
-    { name: "Donate", icon: <FaDonate />, href:'/donate' },
+    { name: "Home", icon: <IoHomeOutline />, href: "/home" },
+    { name: "About Us", icon: <FaUsers />, href: "/about us" },
+    { name: "Shelter", icon: <FaPersonShelter />, href: "/shelter" },
+    { name: "Donate", icon: <FaDonate />, href: "/donate" },
     // Add more sidebar items as needed
   ];
 
@@ -63,13 +63,14 @@ const Sidebar = () => {
         </button>
       </div>
       {/* Sidebar content */}
-      <div className={`mt-8 space-y-5 items-center ${expanded ? " duration-300" : ""}`}>
+      <div
+        className={`mt-8 space-y-5 items-center ${
+          expanded ? " duration-300" : ""
+        }`}
+      >
         {sidebarItems.map((item) => (
           <div key={item.name} className="flex items-center px-4 py-2">
-            <a
-              href={item.href}
-              className={`text-white }`}
-            >
+            <a href={item.href} className={`text-white }`}>
               {item.icon}
             </a>
             {expanded && (

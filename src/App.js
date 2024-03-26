@@ -10,7 +10,6 @@ import Shelter from "./Pages/Shelter";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 
-
 function App() {
   // const [shelters, setShelters] = useState([]);
 
@@ -26,25 +25,45 @@ function App() {
 
   //   fetchShelters();
   // }, []);
+  const [registered, setRegistered] = useState(false);
+  useEffect(() => {
+    // Your initialization logic here (e.g., fetching shelters)
+    // async function fetchShelters() {
+    //   try {
+    //     const response = await axios.get("http://localhost:3000/ngo");
+    //     setShelters(response.data);
+    //   } catch (error) {
+    //     console.error("Error fetching shelters:", error);
+    //   }
+    // }
+    // fetchShelters();
+  }, []); // Empty dependency array to run the effect only once on component mount
 
+  // Function to handle registration
+  const handleRegistration = () => {
+    // Perform registration logic here (e.g., sending data to the server)
+    // After successful registration, update the registration status
+    setRegistered(true);
+  };
   return (
     <div className="overflow-x-hidden">
       <Router>
-      
-      <Sidebar />
-        <Navbar />
-        
+        <Sidebar />
+        <Navbar registered={registered} />
+
         <Routes>
-          <Route path="/" element={<Login/>}></Route>
-          <Route path="/home" element={<Home/>}></Route>
-          <Route path="/donate" element={<Donation/>}/>
+          <Route
+            path="/"
+            element={<Login onRegistration={handleRegistration} />}
+          />
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/donate" element={<Donation />} />
           <Route path="/shelter" element={<Shelter />} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
         {/* <Footer/> */}
       </Router>
-      
     </div>
   );
 }
