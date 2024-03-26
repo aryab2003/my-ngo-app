@@ -182,7 +182,7 @@ const Footer = () => {
 
           <li>
             <a
-              href="https://www.instagram.com/_the_pratyush/"
+              href="/home"
                 rel="noreferrer"
                 target="_blank"       
               className="transition hover:opacity-75 text-gray-200"
@@ -201,7 +201,7 @@ const Footer = () => {
 
           <li>
             <a
-              href="https://twitter.com/kunalkushwahatg"
+              href="/home"
               rel="noreferrer"
               target="_blank"
               className=" transition hover:opacity-75 text-gray-200"
@@ -218,7 +218,7 @@ const Footer = () => {
 
           <li>
             <a
-              href="https://github.com/pratyush0910"
+              href="/home"
               rel="noreferrer"
               target="_blank"
               className=" transition hover:opacity-75 text-gray-200"
