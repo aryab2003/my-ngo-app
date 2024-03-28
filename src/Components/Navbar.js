@@ -5,19 +5,20 @@ const Navbar = ({ isLoggedIn, registered }) => {
     <nav className="bg-gray-900 fixed dark:bg-gray-900 p-4 w-full z-[49]">
       <div className="container mx-auto flex justify-between items-center">
         <div>
-          <a href="#" className="text-white dark:text-gray-200 font-bold"></a>
+          {/* <a href="#" className="text-white dark:text-gray-200 font-bold"></a> */}
         </div>
         <div className="space-x-4 text-white">
           {isLoggedIn ? (
             <button>
-              <a href="/logout">Logout</a>
+              <a href="/">Logout</a>
+              {console.log("user logged out")}
             </button>
           ) : (
             <button>
-              <a href="/login">Login</a>
+              <a href="/">Login</a>
             </button>
           )}
-          {!registered && (
+          {!registered && !isLoggedIn && (
             <button>
               <a href="/register">Register</a>
             </button>

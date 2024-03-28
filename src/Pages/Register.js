@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Register = ({ handleLogin }) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -25,8 +27,11 @@ const Register = () => {
 
     // Redirect to home page after 3 seconds
     setTimeout(() => {
-      window.location.href = "/home"; // Change "/home" to the actual path of your home page
-    }, 3000);
+      navigate('/home')
+      handleLogin()
+      
+      // Change "/home" to the actual path of your home page
+    }, 2000);
 
     // Show welcome message
     setShowWelcome(true);

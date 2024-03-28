@@ -26,6 +26,7 @@ function App() {
   //   fetchShelters();
   // }, []);
   const [registered, setRegistered] = useState(false);
+  // const [login, setLogin] = useState(false);
   useEffect(() => {
     // Your initialization logic here (e.g., fetching shelters)
     // async function fetchShelters() {
@@ -39,28 +40,47 @@ function App() {
     // fetchShelters();
   }, []); // Empty dependency array to run the effect only once on component mount
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    // Perform login logic, e.g., authenticate user
+    // After successful login, update isLoggedIn state to true
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    // Perform logout logic, e.g., clear authentication
+    // After successful logout, update isLoggedIn state to false
+    setIsLoggedIn(false);
+  };
+
   // Function to handle registration
   const handleRegistration = () => {
     // Perform registration logic here (e.g., sending data to the server)
     // After successful registration, update the registration status
     setRegistered(true);
+    setIsLoggedIn(true)
+    
   };
+  // const handleLogin = () => {
+  //   setLogin(true);
+  // };
   return (
     <div className="overflow-x-hidden">
       <Router>
         <Sidebar />
-        <Navbar registered={registered} />
+        <Navbar isLoggedIn={isLoggedIn} registered={registered} />
 
         <Routes>
           <Route
             path="/"
-            element={<Login onRegistration={handleRegistration} />}
+            element={<Login handleLogin={handleLogin} handleLogout={handleLogout} onRegistration={handleRegistration} />}
           />
           <Route path="/home" element={<Home />}></Route>
           <Route path="/donate" element={<Donation />} />
           <Route path="/shelter" element={<Shelter />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          {/* <Route path="/login" element={<Login />} /> */}
+          <Route path="/register" element={<Register handleRegistration={handleRegistration} handleLogin={handleLogin} handleLogout={handleLogout} />} />
         </Routes>
         {/* <Footer/> */}
       </Router>

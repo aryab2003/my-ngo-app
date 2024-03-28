@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Navigate, useNavigate } from "react-router-dom";
 
-const Login = ({ history }) => {
+const Login = ({ history, handleLogin, handleLogout }) => {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
   const firebaseConfig = {
@@ -25,6 +27,9 @@ const Login = ({ history }) => {
       const result = await signInWithPopup(auth, provider);
       console.log(result);
       setIsLoggedIn(true);
+      
+      
+      
 
       // Retrieve user's name from authentication result
       const userDisplayName = result.user.displayName;
@@ -32,8 +37,12 @@ const Login = ({ history }) => {
 
       // Redirect to home page after 5 seconds
       setTimeout(() => {
-        window.location.href = "/home"; // Change "/home" to the actual path of your home page
-      }, 5000);
+        navigate('/home');
+         handleLogin();
+        
+        // Change "/home" to the actual path of your home page
+      }, 2000);
+      
     } catch (error) {
       console.error(error);
     }
@@ -74,7 +83,7 @@ const Login = ({ history }) => {
                 fontWeight: "bold",
                 textTransform: "uppercase",
               }}
-              onClick={() => setIsLoggedIn(false)}
+              onClick={handleLogout}
             >
               Logout
             </button>
