@@ -43,14 +43,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    // Perform login logic, e.g., authenticate user
-    // After successful login, update isLoggedIn state to true
+  
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
-    // Perform logout logic, e.g., clear authentication
-    // After successful logout, update isLoggedIn state to false
+   
     setIsLoggedIn(false);
   };
 
@@ -62,9 +60,7 @@ function App() {
     setIsLoggedIn(true)
     
   };
-  // const handleLogin = () => {
-  //   setLogin(true);
-  // };
+
   return (
     <div className="overflow-x-hidden">
       <Router>
