@@ -90,10 +90,10 @@ const Login = ({ history, handleLogin, handleLogout }) => {
           </div>
         ) : (
           <div>
-            <button
+            <button className="bg-gray-800 hover:bg-gray-900 text-white"
               style={{
-                backgroundColor: "#4285F4",
-                color: "#FFF",
+                
+                
                 padding: "10px 20px",
                 border: "none",
                 borderRadius: "5px",
