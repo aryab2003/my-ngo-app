@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import Sidebar from "./Components/Sidebar";
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
+
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Donation from "./Pages/Donation";
 import Shelter from "./Pages/Shelter";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Interact from "./Pages/Interact";
+import About from "./Pages/About";
 
 function App() {
-  // const [shelters, setShelters] = useState([]);
-
-  // useEffect(() => {
-  //   async function fetchShelters() {
-  //     try {
-  //       const response = await axios.get("http://localhost:3000/ngo");
-  //       setShelters(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching shelters:", error);
-  //     }
-  //   }
-
-  //   fetchShelters();
-  // }, []);
   const [registered, setRegistered] = useState(false);
   useEffect(() => {
     // Your initialization logic here (e.g., fetching shelters)
@@ -61,8 +49,9 @@ function App() {
           <Route path="/shelter" element={<Shelter />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/interact" element={<Interact />} />
+          <Route path="/about" element={<About />} />
         </Routes>
-        {/* <Footer/> */}
       </Router>
     </div>
   );

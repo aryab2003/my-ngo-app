@@ -21,8 +21,6 @@ const Carousel = (props) => {
     "https://source.unsplash.com/man-holding-card-with-seeking-human-kindness-text-8UG90AYPDW4",
     "https://source.unsplash.com/a-chair-sitting-on-a-sidewalk-next-to-a-bunch-of-tents-soP6_EmslXM",
     "https://source.unsplash.com/3-men-and-2-women-posing-for-photo-akRXLuroBCU",
-    // "https://source.unsplash.com/cooked-meat-on-pan-POFG828-GQc",
-    // Add more image URLs as needed
   ];
 
   return (
@@ -58,11 +56,12 @@ const Carousel = (props) => {
         <h1 className="text-6xl text-white">Spreading hope</h1>
         <button className="bg-red-600 p-3 rounded-lg text-white">
           <a href="/donate">Donate &#9829;</a>
-          
+        </button>
+        <button className=" ml-5  bg-green-600 p-3 rounded-lg text-white">
+          <a href="/interact">Upload Concern📸</a>
         </button>
       </div>
     </div>
-    // </div>
   );
 };
 

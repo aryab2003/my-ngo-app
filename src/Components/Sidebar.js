@@ -1,6 +1,6 @@
 // Sidebar.js
 import React, { useState } from "react";
-import Carousel from "./Carousel";
+
 import { IoHomeOutline } from "react-icons/io5";
 import { FaUsers } from "react-icons/fa";
 import { FaPersonShelter } from "react-icons/fa6";
@@ -15,7 +15,7 @@ const Sidebar = () => {
 
   const sidebarItems = [
     { name: "Home", icon: <IoHomeOutline />, href: "/home" },
-    { name: "About Us", icon: <FaUsers />, href: "/about us" },
+    { name: "About Us", icon: <FaUsers />, href: "/about " },
     { name: "Shelter", icon: <FaPersonShelter />, href: "/shelter" },
     { name: "Donate", icon: <FaDonate />, href: "/donate" },
     // Add more sidebar items as needed
