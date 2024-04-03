@@ -11,6 +11,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Interact from "./Pages/Interact";
 import About from "./Pages/About";
+import Admin from "./Pages/Admin";
 
 function App() {
   const [registered, setRegistered] = useState(false);
@@ -70,6 +71,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/interact" element={<Interact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </Router>
     </div>
